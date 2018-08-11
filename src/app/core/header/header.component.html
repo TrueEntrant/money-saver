@@ -1,3 +1,10 @@
-<p>
-  header works!
-</p>
+<div class="container">
+  <h2 class="title">{{title}}</h2>
+  <div class="cabinet">
+    <i class="fa fa-user-secret"></i>
+    <i class="fa fa-sign-out" *ngIf='userData.name; else elseBlock'></i>
+    <ng-template #elseBlock>
+      <i class="fa fa-sign-in"></i>
+    </ng-template>
+  </div>
+</div>

@@ -1,0 +1,24 @@
+@import '../../../assets/vars';
+
+div.result,
+li.stat-item {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+  color: #333;
+  border: 1px solid #ccc;
+  margin-top: 10px;
+  &.positive {
+    background: $positive;
+  }
+  &.negative {
+    background: $negative;
+  }
+  p {
+      font-size: 25px;
+      width: 100%;
+      text-align: end;
+      padding-right: 50px;
+      font-weight: bold;
+  }
+}
