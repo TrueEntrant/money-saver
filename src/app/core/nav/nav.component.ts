@@ -6,10 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./nav.component.scss']
 })
 export class NavComponent implements OnInit {
-
+  dates =['Statistic', 'Planing', 'Review'];
+  
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onSelect(data: string) {
+    console.log(data);
   }
 
 }

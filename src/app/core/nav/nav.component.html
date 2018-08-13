@@ -1,7 +1,10 @@
 <nav>
-  <ul>
-    <li>Запланировать месяц</li>
-    <li>Отчёт за день</li>
-    <li>Статистика</li>
-  </ul>
+  <div>
+    <app-button 
+      *ngFor="let data of dates" 
+      [data]='data' 
+      (send)="onSelect($event)"
+    >
+    </app-button>   
+  </div>
 </nav>
