@@ -1,10 +1,8 @@
 <nav>
-  <div>
-    <app-button 
-      *ngFor="let data of dates" 
-      [data]='data' 
-      (send)="onSelect($event)"
-    >
-    </app-button>   
-  </div>
+  <ul >
+    <li *ngFor="let b of buttons">
+      <app-button (buttonPressed)="btnHandler($event)" [data]="b">
+      </app-button>
+    </li>
+  </ul>
 </nav>

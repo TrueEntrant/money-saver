@@ -6,15 +6,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./nav.component.scss']
 })
 export class NavComponent implements OnInit {
-  dates =['Statistic', 'Planing', 'Review'];
-  
+  buttons: Array<{}> = [
+    {value: 'Запланировать месяц', data: {desc: 'Запланировал на месяц'}, url: '/planning'},
+    {value: 'Отчёт за день', data: {desc: 'Отчет за день/месяц'}, url: '/review'},
+    {value: 'Статистика', data: {desc: 'Статистика за день/месяц'}, url: '/statistic'}];
+
   constructor() { }
 
   ngOnInit() {
   }
 
-  onSelect(data: string) {
-    console.log(data);
+  btnHandler(e) {
+
   }
 
 }

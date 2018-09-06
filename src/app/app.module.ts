@@ -1,26 +1,33 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+
 import { AppComponent } from './app.component';
-import { CoreModule } from './core/core.module';
-import { StatisticModule } from './statistic/statistic.module';
-import { ReviewModule } from './review/review.module';
-import { PlaningModule } from './planing/planing.module';
+import { FormsModule } from '@angular/forms';
+import { CoreModule } from './core/module';
+import { AppRoutingModule } from './app-routing.module';
+import { StoreModule } from '@ngrx/store';
+import { StoreRouterConnectingModule } from '@ngrx/router-store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { EffectsModule } from '@ngrx/effects';
+import { environment } from './../environments/environment';
+import { reduers, metaReducers } from './reducers';
 
 
-@NgModule({ // decorator is a function which get data for transfig class AppModule in an complite NgModule
-  declarations: [ // Components all
-    AppComponent
-  ],
-  imports: [ // advanced modules
-    BrowserModule,
+@NgModule({
+  //
+  declarations: [AppComponent],
+  imports: [
+  BrowserModule, // здесь  представлены прочие модули, которые использует приложение ангу,
     FormsModule,
     CoreModule,
-    StatisticModule,
-    ReviewModule,
-    PlaningModule
+    AppRoutingModule,
+    StoreModule.forRoot(reduers, {metaReducers}), // главный роутинг модуль.
+    StoreRouterConnectingModule.forRoot({stateKey: 'router'}),
+    StoreDevtoolsModule.instrument({name: 'store devtools', logOnly: environment.production}),
+    EffectsModule.forRoot([])
   ],
-  providers: [], // servises functions helpers for data transfer.
-  bootstrap: [AppComponent] // main component of app, app is lunch from that point
+  exports: [],
+  providers: [], // провайдеры обеспечивают обмен данными. Здесь находятся сервисы и др вспомогательные функции для манипуляций с данными
+  bootstrap: [AppComponent] // тут корневой компонент - с него начинается запуск приложения
 })
-export class AppModule { }
+export class AppModule {}

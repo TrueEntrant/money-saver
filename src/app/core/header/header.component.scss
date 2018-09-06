@@ -1,23 +1,25 @@
 @import '../../../assets/vars';
 
-:host .container {
-    background-color: $header-bg;
-    color: #FFF;
-    position: relative;
-    .title {
-        text-align: center;
-        height: 60px;
-        line-height: 60px;
+:host .container-fluid {
+  background-color: $header-bg;
+  position: relative;
+  height: 70px;
+  line-height: 70px;
+
+  .title {
+    text-align: center;
+  }
+  .cabinet {
+    position: absolute;
+    right: 5%;
+    top: 20px;
+    font-size: 30px;
+    cursor: pointer;
+    i {
+      display: inline-block;
+      margin-left: 10px;
     }
-    .cabinet {
-        position: absolute;
-        top: 15px;
-        right: 5%;
-        font-size: 30px;
-        cursor: pointer;
-        i {
-            display: inline-block;
-            margin-left: 10px;
-        }
-    }
+  }
 }
+
+

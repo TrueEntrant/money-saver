@@ -1,12 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReviewComponent } from './review/review.component';
+import { ReviewFormComponent } from './review-form/review-form.component';
+import {ReviewRouterModule} from './review-routing.module';
+import {ReviewResolver} from './resolvers/review-resolver.service';
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    ReviewRouterModule
   ],
-  declarations: [ReviewComponent],
-  exports : [ReviewComponent]
+  declarations: [ReviewFormComponent],
+  providers: [ReviewResolver]
 })
 export class ReviewModule { }
